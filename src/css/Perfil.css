@@ -1,0 +1,42 @@
+.container-perfil{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 50px;
+    background: rgba(6, 16, 35, 0.7);
+    padding: 30px;
+    margin: 50px auto;
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: 0 0 15px var(--color-morado);
+    backdrop-filter: blur(10px);
+}
+
+h2{
+    color: var(--color-texto);
+    font-size: 26pt;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.container-perfil a{
+    background: var(--color-fondo);
+    border: 2px solid var(--color-morado);
+    padding: 7px 25px;
+    font-family: genos, sans-serif;
+    letter-spacing: 0.7px;
+    font-size: 14pt;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--color-texto);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.container-perfil a:hover{
+    border: 2px solid var(--color-morado);
+    background: var(--color-morado);
+    color: var(--color-texto);
+}

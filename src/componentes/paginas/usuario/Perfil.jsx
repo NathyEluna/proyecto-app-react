@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { sesionContexto } from "../../../contextos/ProveedorSesion";
+import "../../../css/Perfil.css";
 
 const Perfil = () => {
     //Contexto.

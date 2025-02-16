@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { sesionContexto } from "../../../contextos/ProveedorSesion.jsx";
+import "../../../css/EditarPerfil.css";
 
 const EditarPerfil = () => {
     //Contexto.
@@ -35,7 +36,7 @@ const EditarPerfil = () => {
             <label>Password:</label>
             <input type="password" name="password" id="password" value={formData.password} onChange={manejarCambio} required />
 
-            <button type="submit">Update</button>
+            <button className="btn-editar-perfil" type="submit">Update</button>
         </form>
       </div>
     );
