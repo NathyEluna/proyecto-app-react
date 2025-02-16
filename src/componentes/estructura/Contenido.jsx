@@ -1,10 +1,10 @@
 
 
-const Contenido = () => {
+const Contenido = ({children}) => {
   return (
-    <>
-    
-    </>
+    <div className="contenido">
+      {children}
+    </div>
   );
 };
 
