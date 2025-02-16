@@ -34,3 +34,20 @@ header{
 .menu-login{
     margin-left: 50px;
 }
+
+.hamburger-menu{
+    display: flex;
+    flex-direction: column;
+}
+
+.hamburger-menu a{
+    color: var(--color-texto);
+    font-size: 16pt;
+    font-weight: 600;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.hamburger-menu a:hover{
+    color: var(--color-rosa);
+}

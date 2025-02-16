@@ -1,0 +1,89 @@
+.container-imagen-contacto{
+    content: "";
+    display: block;
+    width: 100%;
+    padding: 70px 0 30px;
+    height: 100%;
+    background: url('../assets/img/YDRAY-jessi_1.png') no-repeat center center/cover;
+}
+
+.container-contacto{
+    background: rgba(6, 16, 35, 0.7);
+    padding: 30px;
+    margin: 0 auto;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 0 15px var(--color-azul);
+    backdrop-filter: blur(10px);
+}
+
+.container-contacto > form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.container-contacto > form > label {
+    font-size: 14pt;
+    letter-spacing: 0.7px;
+    text-align: center;
+}
+
+.container-contacto > form > input {
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+    border: 1px solid var(--color-azul);
+    background: var(--color-campo-formulario);
+    color: var(--color-texto);
+    outline: none;
+    border-radius: 5px;
+}
+
+
+.container-contacto > form > input::placeholder {
+    color: var(--color-texto);
+}
+
+.container-contacto > form > input:focus {
+    background-color: var(--color-azul);
+    color: var(--color-texto);
+}
+
+.container-contacto > form > textarea {
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+    border: 1px solid var(--color-azul);
+    background: var(--color-campo-formulario);
+    color: var(--color-texto);
+    outline: none;
+    border-radius: 5px;
+}
+
+
+.container-contacto > form > textarea:focus {
+    background-color: var(--color-azul);
+    color: var(--color-texto);
+}
+
+.btn-contacto{
+    background: var(--color-fondo);
+    border: 2px solid var(--color-azul);
+    padding: 7px 25px;
+    font-family: genos, sans-serif;
+    letter-spacing: 0.7px;
+    font-size: 14pt;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--color-texto);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-contacto:hover{
+    border: 2px solid var(--color-azul);
+    background: var(--color-azul);
+    color: var(--color-texto);
+}

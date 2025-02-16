@@ -20,3 +20,7 @@
     --color-fondo: #061023;
     --color-texto: #f9f9f9;
 }
+
+h1{
+  margin: 10px 0 20px;
+}

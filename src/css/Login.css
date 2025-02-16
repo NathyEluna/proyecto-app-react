@@ -1,25 +1,17 @@
 .container-imagen {
-    position: absolute; /* Necesario para que ::before se posicione bien */
-    width: 100%;
-    height: 78%; /* O la altura que desees */
-}
-
-.container-imagen::before {
     content: "";
     display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
+    padding: 70px 0 0;
     height: 100%;
     background: url('../assets/img/YDRAY-jessi_2.png') no-repeat center center/cover;
-    opacity: 0.5;
+
 }
 
 .container-login{
     background: rgba(6, 16, 35, 0.7);
     padding: 30px;
-    margin: 50px auto;
+    margin: 0 auto;
     width: 50%;
     border-radius: 10px;
     box-shadow: 0 0 15px var(--color-morado);
