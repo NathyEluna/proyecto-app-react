@@ -24,14 +24,14 @@ const IniciarSesion = () => {
             : (
                 <div className="container-sesion">
                     <form>
-                        <h2>Login</h2>
+                        <h1>Login</h1>
                         <label htmlFor="email">Username:</label>
                         <input type="email" name="email" id="email" placeholder="Username" onChange={manejarCambioEmail} />
                         
                         <label htmlFor="password">Password:</label>
                         <input type="password" name="password" id="password" placeholder="********" onChange={manejarCambioPassword} />
                         
-                        <button className="" onClick={manejarClick}>Sign In</button>
+                        <button className="btn-sesion" onClick={manejarClick}>Sign In</button>
                         {/*logica del error*/}
                     </form>
                 </div>

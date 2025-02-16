@@ -5,6 +5,7 @@ header{
     background: var(--color-fondo);
     box-shadow: var(--color-morado) 0 0 10px;
     padding: 15px 80px 15px 60px;
+    z-index: 1000;
 }
 
 .contenedor-logo img{

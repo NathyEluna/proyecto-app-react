@@ -3,4 +3,5 @@ footer {
     padding: 15px;
     box-shadow: var(--color-morado) 0 0 10px;
     background: var(--color-fondo);
+    z-index: 1000;
 }
