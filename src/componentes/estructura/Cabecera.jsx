@@ -1,5 +1,7 @@
 import Navegador from "./Navegador.jsx";
 import MenuLogin from "../menus/MenuLogin.jsx";
+import "../../css/Cabecera.css";
+import logo from "../../assets/img/MindEscape_Imagotipo.png";
 
 const Cabecera = () => {
   
@@ -7,7 +9,7 @@ const Cabecera = () => {
   return (
     <header>
       <div className="contenedor-logo">
-        <h1>Logo</h1>
+        <img src={logo} alt="MindEscape" />
       </div>
       
       <Navegador />

@@ -8,17 +8,21 @@ const MenuLogin = () => {
     const { user, manejarLogout } = useContext(sesionContexto);
     // Estado para el menú hamburguesa.
     const [menuVisible, setMenuVisible] = useState(false);
+    const [color, setColor] = useState("white");
+
+    
 
     // Función para alternar la visibilidad del menú.
     const toggleMenu = () => {
         setMenuVisible(!menuVisible);
+        setColor(color === "white" ? "#DB1A9B" : "white");
     };
 
     
     return (
         <div className="menu-login">
             {/* Mostrar el icono de usuario */}
-            <FaUserLarge color="blue" fontSize="30px" onClick={toggleMenu} />
+            <FaUserLarge color={color} fontSize="30px" onClick={toggleMenu} />
 
             {/* Menú hamburguesa */}
             {menuVisible && (

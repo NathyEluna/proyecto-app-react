@@ -1,6 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Genos:wght@500;600;700;800&display=swap');
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  max-width: 100%;
   text-align: center;
+  position: absolute;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 100%;
+  height: 100%;
+  font-family: genos, sans-serif;
+
+
+  /*Definición de colores*/
+    --color-morado: #811ADB;
+    --color-rosa: #DB1A9B;
+    --color-azul: #6DC9F7;
+    --color-campo-formulario: #1E2D49;
+    --color-fondo: #061023;
+    --color-texto: #f9f9f9;
 }
