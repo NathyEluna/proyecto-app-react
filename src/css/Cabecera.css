@@ -1,5 +1,3 @@
-
-
 header{
     display: flex;
     justify-content: space-between;
@@ -15,7 +13,7 @@ header{
 
 .container-navegador{
     display: flex;
-    gap: 40px;
+    gap: 60px;
     font-size: 16pt;
     font-weight: 600;
     text-decoration: none;
@@ -31,4 +29,7 @@ header{
 }
 .container-navegador a.activo {
     color: var(--color-rosa);
-  }
+}
+.menu-login{
+    margin-left: 50px;
+}
