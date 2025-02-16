@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { sesionContexto } from "../../../contextos/ProveedorSesion.jsx";
+import "../../../css/CrearCuenta.css";
 
 const CrearCuenta = () => {
     // Contexto.
@@ -24,20 +25,23 @@ const CrearCuenta = () => {
         <>
             {loading ? <p>Loading...</p> 
             : (
-                <div className="container-registro">
-                    <h1>Create Account</h1>
-                    <form>
-                        <label htmlFor="username">Username:</label>
-                        <input type="text" id="username" name="username" placeholder="Username" required onChange={manejarCambioUsername} />
+                <div className="container-imagen">
+                    <div className="container-registro">
+                        <h1>Create Account</h1>
+                        <form>
+                            <label htmlFor="username">Username:</label>
+                            <input type="text" id="username" name="username" placeholder="Username" required onChange={manejarCambioUsername} />
 
-                        <label htmlFor="email">Email:</label>
-                        <input type="email" id="email" name="email" placeholder="email@example.com" required onChange={manejarCambioEmail} />
+                            <label htmlFor="email">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="email@example.com" required onChange={manejarCambioEmail} />
 
-                        <label htmlFor="password">Password:</label>
-                        <input type="password" id="password" name="password" placeholder="********" required onChange={manejarCambioPassword} />
+                            <label htmlFor="password">Password:</label>
+                            <input type="password" id="password" name="password" placeholder="********" required onChange={manejarCambioPassword} />
 
-                        <button className="" onClick={manejarClick}>Create Account</button>
-                    </form>
+                            <button className="btn-sesion" onClick={manejarClick}>Create Account</button>
+                        </form>
+                    </div>
+
                 </div>
             )}
         </>

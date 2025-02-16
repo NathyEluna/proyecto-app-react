@@ -1,0 +1,80 @@
+.container-imagen {
+    position: absolute; /* Necesario para que ::before se posicione bien */
+    width: 100%;
+    height: 78%; /* O la altura que desees */
+}
+
+.container-imagen::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/img/YDRAY-jessi_2.png') no-repeat center center/cover;
+    opacity: 0.5;
+}
+
+.container-registro{
+    background: rgba(6, 16, 35, 0.7);
+    padding: 30px;
+    margin: 50px auto;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 0 15px var(--color-morado);
+    backdrop-filter: blur(10px);
+}
+
+.container-registro > form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.container-registro > form > label {
+    font-size: 14pt;
+    letter-spacing: 0.7px;
+    text-align: center;
+}
+
+.container-registro > form > input {
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+    border: 1px solid var(--color-morado);
+    background: var(--color-campo-formulario);
+    color: var(--color-texto);
+    outline: none;
+    border-radius: 5px;
+}
+
+.container-registro > form > input::placeholder {
+    color: var(--color-texto);
+}
+
+.container-registro > form > input:focus {
+    background-color: var(--color-morado);
+    color: var(--color-texto);
+}
+
+.btn-sesion{
+    background: var(--color-fondo);
+    border: 2px solid var(--color-morado);
+    padding: 7px 25px;
+    font-family: genos, sans-serif;
+    letter-spacing: 0.7px;
+    font-size: 14pt;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--color-texto);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-sesion:hover{
+    border: 2px solid var(--color-morado);
+    background: var(--color-morado);
+    color: var(--color-texto);
+}

@@ -17,7 +17,7 @@ const Perfil = () => {
             <p><strong>Email:</strong></p>
             <p>{user?.email}</p>
 
-            <Link to="/profile/edit">Edit Profile</Link>
+            <Link to="/edit-profile">Edit Profile</Link>
         </div>
     );
 };
