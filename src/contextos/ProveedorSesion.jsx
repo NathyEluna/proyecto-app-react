@@ -67,9 +67,10 @@ const ProveedorSesion = ({ children }) => {
 
     //Obtener el token de localStorage.
     const token = localStorage.getItem("token");
+    const id = localStorage.getItem("id");
 
     //Llamar a la función updateUserProfile del hook useUser.
-    const updatedUser = await updateUserProfile(user.id, updatedData, token);
+    const updatedUser = await updateUserProfile(id, updatedData, token);
 
     //Si se actualizó el perfil, actualizar el estado.
     if (updatedUser) {
