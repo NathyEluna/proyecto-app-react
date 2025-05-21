@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import IdiomaBoton from "../cambiarIdioma/idiomaBoton.jsx";
 
 
 const Navegador = () => {
@@ -9,7 +10,9 @@ const Navegador = () => {
       <Link className={location.pathname === "/" ? "activo" : ""} to="/">Home</Link>
       <Link className={location.pathname === "/contact-us" ? "activo" : ""} to="/contact-us">Contact Us</Link>
       <Link className={location.pathname === "/about-us" ? "activo" : ""} to="/about-us">About Us</Link>
-      
+
+      <IdiomaBoton />
+
     </nav>
   );
 };

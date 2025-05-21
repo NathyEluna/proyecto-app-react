@@ -18,6 +18,7 @@ header{
     font-size: 16pt;
     font-weight: 600;
     text-decoration: none;
+    align-items: center;
     margin: 0 15px;
 }
 .container-navegador a{

@@ -15,6 +15,7 @@ const Cabecera = () => {
       <Navegador />
 
       <MenuLogin />
+      
     </header>
   );
 };

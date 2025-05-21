@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { sesionContexto } from "../../contextos/ProveedorSesion.jsx";
 import { FaUserLarge } from "react-icons/fa6";
 
+
 const MenuLogin = () => {
     // Contexto.
     const { user, manejarLogout } = useContext(sesionContexto);
@@ -20,6 +21,8 @@ const MenuLogin = () => {
 
     
     return (
+        <>
+        
         <div className="menu-login">
             {/* Mostrar el icono de usuario */}
             <FaUserLarge color={color} fontSize="30px" onClick={toggleMenu} />
@@ -41,6 +44,7 @@ const MenuLogin = () => {
                 </div>
             )}
         </div>
+        </>
     );
 };
 
