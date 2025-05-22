@@ -20,6 +20,18 @@ import espanolBotonIdioma from './idiomas/es/botonIdioma/botonIdioma.js';
 import inglesNavegador from './idiomas/en/navegador/navegador.js';
 import espanolNavegador from './idiomas/es/navegador/navegador.js';
 
+import inglesMenuLogin from './idiomas/en/menuLogin/menuLogin.js';
+import espanolMenuLogin from './idiomas/es/menuLogin/menuLogin.js';
+
+import inglesFooter from './idiomas/en/footer/footer.js';
+import espanolFooter from './idiomas/es/footer/footer.js';
+
+import inglesNosotros from './idiomas/en/nosotros/nosotros.js';
+import espanolNosotros from './idiomas/es/nosotros/nosotros.js';
+
+import inglesSlider from './idiomas/en/slider/slider.js';
+import espanolSlider from './idiomas/es/slider/slider.js';
+
 const resources = {
   en: {
     contacto: inglesContacto,
@@ -28,6 +40,10 @@ const resources = {
     editarPerfil: inglesEditarPerfil,
     botonIdioma: inglesBotonIdioma,
     navegador: inglesNavegador,
+    menuLogin: inglesMenuLogin,
+    footer: inglesFooter,
+    nosotros: inglesNosotros,
+    slider: inglesSlider,
     
   },
   es: {
@@ -37,6 +53,11 @@ const resources = {
     editarPerfil: espanolEditarPerfil,
     botonIdioma: espanolBotonIdioma,
     navegador: espanolNavegador,
+    menuLogin: espanolMenuLogin,
+    footer: espanolFooter,
+    nosotros: espanolNosotros,
+    slider: espanolSlider,
+
   },
 };
 
@@ -47,12 +68,16 @@ i18n
     resources,
     fallbackLng: 'es',
     ns: [
-        "contacto",
-        "login",
+        'contacto',
+        'login',
         'crearCuenta',
         'editarPerfil',
         'botonIdioma',
         'navegador',
+        'menuLogin',
+        'footer',
+        'nosotros',
+        'slider',
     ],
   });
 

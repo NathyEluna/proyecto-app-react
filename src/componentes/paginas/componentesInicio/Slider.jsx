@@ -1,39 +1,21 @@
-// components/HeroSlider.jsx
-
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
+//imagenes
+import cyberpunk from "../../../assets/img/imagen_cyberpunk.png";
+import espia from "../../../assets/img/espia.png";
+import steampunk from "../../../assets/img/steampunk.webp";
 
-const slides = [
-  {
-    id: 1,
-    image: "/images/slide1.jpg",
-    title: "¿Podrás romper el código antes de que lo hagan ellos?",
-    description: "Sumérgete en una ciudad distópica gobernada por corporaciones. La IA te guiará… si confías en ella.",
-    buttonText: "Entrar al ciberlaberinto",
-    buttonLink: "/about-us",
-    position: "left",
-  },
-  {
-    id: 2,
-    image: "/images/slide2.jpg",
-    title: "Tus decisiones cambiarán la historia",
-    description: "Estás atrapado tras las líneas enemigas. Descifra, infiltra y escapa con la ayuda de la inteligencia artificial.",
-    buttonText: "Entrar al ciberlaberinto",
-    buttonLink: "/about-us",
-    position: "right",
-  },
-  {
-    id: 3,
-    image: "/images/slide3.jpg",
-    title: "El vapor se alza... y el tiempo corre",
-    description: "En un mundo de relojes, humo y secretos, cada pista cuenta. ¿Resolverás el enigma mecánico?",
-    buttonText: "Entrar al ciberlaberinto",
-    buttonLink: "/about-us",
-    position: "center",
-  },
-];
 
 export default function Slider() {
+  const { t } = useTranslation("slider");
+
+  const slides = [
+    { id: 1, image: cyberpunk, key: "slide1", position: "left", buttonLink: "/about-us" , gradient: "linear-gradient(to left, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.3) 40%, rgba(129, 26, 219, 0.8) 100%)"},
+    { id: 2, image: espia, key: "slide2", position: "right", buttonLink: "/about-us", gradient: "linear-gradient(to right, rgba(0,0,0,0.0) 0%, rgba(6, 16, 35, 0.5) 40%, rgba(6, 16, 35, 1) 100%)" },
+    { id: 3, image: steampunk, key: "slide3", position: "center", buttonLink: "/about-us", gradient: "linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.3) 40%, rgba(109, 201, 247, 0.85) 100%)" }
+  ];
+  
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -44,10 +26,12 @@ export default function Slider() {
   }, []);
 
   const slide = slides[current];
+  const content = t(slide.key, { returnObjects: true });
 
   return (
-    <div className="relative w-full h-[80vh] overflow-hidden">
-      <AnimatePresence mode="wait">
+    <>
+      <div className="relative w-full h-[80vh] overflow-hidden">
+        <AnimatePresence mode="wait">
         <motion.div
           key={slide.id}
           initial={{ opacity: 0 }}
@@ -56,27 +40,49 @@ export default function Slider() {
           className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
           style={{ backgroundImage: `url(${slide.image})` }}
         >
-          <div className="bg-black bg-opacity-50 w-full h-full flex items-center">
+          {/* Gradiente encima de la imagen */}
+          <div
+            className="absolute top-0 left-0 w-full h-full pointer-events-none z-40"
+            style={{
+              background: slide.gradient,
+            }}
+          />
+
+          {/* Contenido por encima del gradiente */}
+          <div className="absolute top-0 left-0 w-full h-full flex items-center z-50">
             <div
-              className={`
-                text-white px-4 max-w-2xl
+              className={`text-white px-4 max-w-2xl
                 ${slide.position === "center" ? "mx-auto text-center" : ""}
                 ${slide.position === "left" ? "ml-10 text-left" : ""}
                 ${slide.position === "right" ? "ml-auto mr-10 text-right" : ""}
               `}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">{slide.title}</h2>
-              <p className="text-lg md:text-xl mb-6">{slide.description}</p>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">{content.title}</h2>
+              <p className="text-lg md:text-xl mb-6">{content.description}</p>
               <a
                 href={slide.buttonLink}
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-2xl shadow-lg transition"
+                style={{
+                  backgroundColor: "var(--color-rosa)",
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = "var(--color-fondo)";
+                  e.target.style.color = "white";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = "var(--color-rosa)";
+                  e.target.style.color = "black";
+                }}
+                className="inline-block font-semibold py-3 px-6 rounded-2xl shadow-lg transition-colors"
               >
-                {slide.buttonText}
+                {content.buttonText}
               </a>
             </div>
           </div>
         </motion.div>
-      </AnimatePresence>
-    </div>
+
+        </AnimatePresence>
+      </div>
+    
+    </>
   );
 }

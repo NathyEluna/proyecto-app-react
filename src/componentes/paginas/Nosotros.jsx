@@ -1,11 +1,15 @@
-
+import "../../css/Nosotros.css";
+import { useTranslation } from "react-i18next";
 
 const Nosotros = () => {
+  const { t } = useTranslation("nosotros");
+
   return (
-    <div className="container">
-        <h1>About Us</h1>
-        <p>Our company is dedicated to providing the best service to our customers.</p>
-        <p>We have the best team of professionals who are willing to help you with any questions you may have.</p>
+    <div className="container-nosotros">
+        <h1>{t("title")}</h1>
+        <p>{t("paragraph1")}</p>
+        <p>{t("paragraph2")}</p>
+        <p>{t("paragraph3")}</p>
     </div>
   );
 };
