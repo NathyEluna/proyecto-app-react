@@ -81,3 +81,9 @@
 .container-enlaces-sesion a:hover{
     text-decoration: underline;
 }
+
+@media screen and (max-width: 768px) {
+    .container-login{
+        width: 90%;
+    }
+}

@@ -2,6 +2,7 @@ import { useEffect, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { sesionContexto } from "../../contextos/ProveedorSesion.jsx";
 import { FaUserLarge } from "react-icons/fa6";
+import "../../css/MenuLogin.css";
 
 
 const MenuLogin = () => {

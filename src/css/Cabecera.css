@@ -8,9 +8,13 @@ header{
     z-index: 1000;
 }
 
-.contenedor-logo img{
+.contenedor-logo img {
     height: 60px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
 }
+
 
 .container-navegador{
     display: flex;
@@ -36,19 +40,87 @@ header{
     margin-left: 50px;
 }
 
-.hamburger-menu{
+/* Botón hamburguesa oculto por defecto */
+.boton-hamburguesa {
+  display: none;
+  padding: 10px 20px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: var(--color-texto);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Menú flotante en móvil */
+.menu-flotante {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80%;
+  max-width: 300px;
+  height: 100vh;
+  background: var(--color-fondo);
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+  padding: 30px 20px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  z-index: 1100;
+  animation: slideIn 0.3s ease forwards;
+}
+
+/* Cerrar menú */
+.cerrar-menu {
+  align-self: flex-end;
+  padding: 0 20px;
+  font-size: 50px;
+  background: none;
+  border: none;
+  color: var(--color-texto);
+  cursor: pointer;
+}
+
+/* Animación de entrada */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Estilos normales para el navegador en escritorio */
+.navegador-escritorio {
     display: flex;
+    gap: 60px;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    header {
+        padding:  20px;
+    }
+  .navegador-escritorio {
+    display: none; /* Oculta menú normal */
+  }
+
+  .boton-hamburguesa {
+    display: block;
+  }
+
+  .container-navegador {
     flex-direction: column;
-}
+    gap: 20px;
+  }
 
-.hamburger-menu a{
-    color: var(--color-texto);
-    font-size: 16pt;
-    font-weight: 600;
-    text-decoration: none;
-    margin: 0 15px;
-}
-
-.hamburger-menu a:hover{
-    color: var(--color-rosa);
+  .menu-login {
+    margin-left: 0;
+    align-self: center;
+  }
 }

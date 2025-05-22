@@ -17,6 +17,9 @@ import espanolEditarPerfil from './idiomas/es/editarPerfil/editarPerfil.js';
 import inglesBotonIdioma from './idiomas/en/botonIdioma/botonIdioma.js';
 import espanolBotonIdioma from './idiomas/es/botonIdioma/botonIdioma.js';
 
+import inglesNavegador from './idiomas/en/navegador/navegador.js';
+import espanolNavegador from './idiomas/es/navegador/navegador.js';
+
 const resources = {
   en: {
     contacto: inglesContacto,
@@ -24,6 +27,7 @@ const resources = {
     crearCuenta: inglesCrearCuenta,
     editarPerfil: inglesEditarPerfil,
     botonIdioma: inglesBotonIdioma,
+    navegador: inglesNavegador,
     
   },
   es: {
@@ -32,6 +36,7 @@ const resources = {
     crearCuenta: espanolCrearCuenta,
     editarPerfil: espanolEditarPerfil,
     botonIdioma: espanolBotonIdioma,
+    navegador: espanolNavegador,
   },
 };
 
@@ -47,6 +52,7 @@ i18n
         'crearCuenta',
         'editarPerfil',
         'botonIdioma',
+        'navegador',
     ],
   });
 
