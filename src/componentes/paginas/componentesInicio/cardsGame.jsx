@@ -56,7 +56,7 @@ export default function cardsGame() {
         <div key={idx} className="w-[70%] mx-auto">
           {/* Card layout: imagen + texto */}
           <div
-            className={`rounded-3xl text-left px-0 shadow-2xl w-full relative z-20 flex items-center gap-5 ${
+            className={`rounded-3xl text-left px-0 shadow-2xl w-full relative z-20 flex items-center ${
               card.imagePosition === "left" ? "flex-row" : "flex-row-reverse"
             }`}
             style={{
@@ -71,7 +71,7 @@ export default function cardsGame() {
             />
 
             {/* Texto */}
-            <div className="flex-1 px-10 py-4">
+            <div className="flex-1 px-15 py-10">
               <h2 className="text-2xl md:text-3xl font-bold mb-4">{card.title}</h2>
               <p className="text-white/90 whitespace-pre-line font-semibold text-base leading-relaxed">
                 {card.text}
