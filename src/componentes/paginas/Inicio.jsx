@@ -1,10 +1,13 @@
-import Slider from "./componentesInicio/slider.jsx";
+import Slider from "./componentesInicio/Slider.jsx";
+import CardsGame from "./componentesInicio/cardsGame.jsx";
+
 
 const Inicio = () => {
   return (
     <>
       <div className="container-slider-inicio">
         <Slider />
+        <CardsGame />
       </div>
       
     </>

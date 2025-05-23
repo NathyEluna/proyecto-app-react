@@ -72,7 +72,7 @@ export default function Slider() {
                   e.target.style.backgroundColor = "var(--color-rosa)";
                   e.target.style.color = "black";
                 }}
-                className="inline-block font-semibold py-3 px-6 rounded-2xl shadow-lg transition-colors"
+                className="inline-block text-lg font-medium py-3 px-6 rounded-2xl shadow-lg transition-colors"
               >
                 {content.buttonText}
               </a>
