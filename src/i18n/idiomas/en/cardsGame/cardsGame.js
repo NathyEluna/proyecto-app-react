@@ -1,37 +1,25 @@
-const cards = [
-  {
-    title: "Interactúa con la IA del Juego",
-    text: `No estarás solo en este viaje. Un sistema de inteligencia artificial se comunicará contigo mediante un chat en tiempo real. 
-Puedes hacer preguntas, pedir pistas o simplemente conversar... pero cuidado: la IA no siempre dice todo lo que sabe. Algunas respuestas dependerán de tus decisiones, tu progreso y de cuán bien hayas explorado el entorno.
-¿Será tu guía... o parte del misterio?`,
-    gradient: "linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.3) 20%, rgba(109, 201, 247, 0.85) 100%)",
-    image: IAImage,
-
-    imageSize: "w-[280px]",
-    imageTransform: "scale-x-[-1]",
+const cardsGame = {
+  card1: {
+    title: "Interact with the Game's AI",
+    text: `You won't be alone on this journey. An AI system will communicate with you through real-time chat. 
+You can ask questions, request hints, or just talk... but beware: the AI doesn’t always say everything it knows. Some answers depend on your decisions, your progress, and how well you've explored.
+Will it be your guide... or part of the mystery?`
   },
-  {
-    title: "Resuelve Puzzles Únicos",
-    text: `Cada sala te pondrá a prueba con acertijos diseñados para desafiar tu lógica, tu intuición y tu capacidad de observación. No hay soluciones obvias: tendrás que pensar fuera de la caja y conectar pistas que, a simple vista, no parecen tener relación.
-Prepárate para romper tus propios esquemas... porque en MindEscape, nada es lo que parece.`,
-    gradient: "linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.3) 20%, rgba(129, 26, 219, 0.8) 100%)",
-    image: PuzzleImage,
-
+  card2: {
+    title: "Solve Unique Puzzles",
+    text: `Each room will test your logic, intuition, and observation skills. There are no obvious solutions: you'll have to think outside the box and connect clues that don’t seem related at first glance.
+Get ready to break your own patterns... because in MindEscape, nothing is what it seems.`
   },
-  {
-    title: "Elige Tu Aventura",
-    text: `No es solo un juego, es un universo de opciones. ¿Prefieres la estética futurista del Cyberpunk? ¿O te intrigan los secretos de la Segunda Guerra Mundial? ¿Tal vez un mundo retrofuturista Steampunk es lo tuyo?
-Tú eliges dónde empezar. Pero recuerda: cada elección abre caminos... y cierra otros.`,
-    gradient: "linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.3) 20%, rgba(109, 201, 247, 0.85) 100%)",
-    image: CyberpunkImage,
-
+  card3: {
+    title: "Choose Your Adventure",
+    text: `It’s not just a game — it’s a universe of options. Prefer the futuristic aesthetic of Cyberpunk? Or are you intrigued by the secrets of World War II? Maybe a retrofuturistic Steampunk world is your thing?
+You choose where to start. But remember: each choice opens paths... and closes others.`
   },
-  {
-    title: "Recolecta Objetos Clave",
-    text: `Explorar es tan importante como resolver. A medida que avances por los escenarios, deberás estar atento a detalles, rincones ocultos y objetos aparentemente insignificantes que pueden marcar la diferencia.
-Tu inventario será tu mejor aliado, si sabes cómo usarlo.`,
-    gradient: "linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.3) 20%, rgba(129, 26, 219, 0.8) 100%)",
-    image: BackpackImage,
+  card4: {
+    title: "Collect Key Items",
+    text: `Exploration is as important as solving. As you move through the scenarios, stay alert for small details, hidden corners, and seemingly insignificant items that could make the difference.
+Your inventory will be your best ally — if you know how to use it.`
+  }
+};
 
-  },
-];
+export default cardsGame;

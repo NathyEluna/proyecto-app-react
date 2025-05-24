@@ -7,6 +7,7 @@ const login = {
     buttonSignIn: "Ingresar",
     loading: "Cargando...",
     createAccount: "¿No tienes cuenta? !Crea una aquí!",
+    resetPassword: "Restablecer contraseña"
 };
 
 export default login;

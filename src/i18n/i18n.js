@@ -32,6 +32,15 @@ import espanolNosotros from './idiomas/es/nosotros/nosotros.js';
 import inglesSlider from './idiomas/en/slider/slider.js';
 import espanolSlider from './idiomas/es/slider/slider.js';
 
+import inglesCardsGame from './idiomas/en/cardsGame/cardsGame.js';
+import espanolCardsGame from './idiomas/es/cardsGame/cardsGame.js';
+
+import inglesCambiarPassword from './idiomas/en/cambiarPassword/cambiarPassword.js';
+import espanolCambiarPassword from './idiomas/es/cambiarPassword/cambiarPassword.js';
+
+import inglesRestablecerPassword from './idiomas/en/restablecerPassword/restablecerPassword.js';
+import espanolRestablecerPassword from './idiomas/es/restablecerPassword/restablecerPassword.js';
+
 const resources = {
   en: {
     contacto: inglesContacto,
@@ -44,6 +53,9 @@ const resources = {
     footer: inglesFooter,
     nosotros: inglesNosotros,
     slider: inglesSlider,
+    cardsGame: inglesCardsGame,
+    cambiarPassword: inglesCambiarPassword,
+    restablecerPassword: inglesRestablecerPassword,
     
   },
   es: {
@@ -57,6 +69,9 @@ const resources = {
     footer: espanolFooter,
     nosotros: espanolNosotros,
     slider: espanolSlider,
+    cardsGame: espanolCardsGame,
+    cambiarPassword: espanolCambiarPassword,
+    restablecerPassword: espanolRestablecerPassword,
 
   },
 };
@@ -78,6 +93,9 @@ i18n
         'footer',
         'nosotros',
         'slider',
+        'cardsGame', 
+        'cambiarPassword',
+        'restablecerPassword',
     ],
   });
 

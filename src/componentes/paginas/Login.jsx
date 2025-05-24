@@ -14,6 +14,7 @@ const Login = () => {
 
         <div className="container-enlaces-sesion">
           <Link className="" to="/create-account">{t('createAccount')}</Link>
+          <Link className="iniciar-btn" to="/restablecer-password">{t("resetPassword")}</Link>
         </div>
       </div> 
     </div>
