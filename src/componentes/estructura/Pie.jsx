@@ -1,9 +1,13 @@
 import "../../css/pie.css";
+import { useTranslation } from "react-i18next";
+
 
 const Pie = () => {
+  const { t } = useTranslation("footer");
+
   return (
     <footer>
-        <p>NassiCorp© 2025 - Todos los derechos reservados</p>
+        <p>{t("copyright")}</p>
     </footer>
   );
 };

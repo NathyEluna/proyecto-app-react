@@ -71,6 +71,14 @@
     color: var(--color-texto);
 }
 
+.container-enlaces-sesion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+}
+
 .container-enlaces-sesion a{
     color: var(--color-texto);
     text-decoration: none;
@@ -80,4 +88,10 @@
 
 .container-enlaces-sesion a:hover{
     text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+    .container-login{
+        width: 90%;
+    }
 }

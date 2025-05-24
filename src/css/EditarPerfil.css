@@ -64,3 +64,9 @@
     background: var(--color-morado);
     color: var(--color-texto);
 }
+
+@media screen and (max-width: 768px) {
+    .container-editar{
+        width: 90%;
+    }
+}

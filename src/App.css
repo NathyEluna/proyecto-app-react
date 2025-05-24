@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Genos:wght@500;600;700;800&display=swap');
 
+:root{
+  /*Definición de colores*/
+    --color-morado: #811ADB;
+    --color-rosa: #DB1A9B;
+    --color-azul: #6DC9F7;
+    --color-campo-formulario: #1E2D49;
+    --color-fondo: #061023;
+    --color-texto: #f9f9f9;
+}
+
 #root {
   max-width: 100%;
   text-align: center;
@@ -12,13 +22,6 @@
   background-color: var(--color-fondo);
 
 
-  /*Definición de colores*/
-    --color-morado: #811ADB;
-    --color-rosa: #DB1A9B;
-    --color-azul: #6DC9F7;
-    --color-campo-formulario: #1E2D49;
-    --color-fondo: #061023;
-    --color-texto: #f9f9f9;
 }
 
 h1{

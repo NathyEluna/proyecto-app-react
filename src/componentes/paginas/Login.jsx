@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import IniciarSesion from "./sesion/IniciarSesion.jsx";
 import "../../css/Login.css";
+import { useTranslation } from "react-i18next";
 
 const Login = () => {
+  const { t } = useTranslation("login");
     //Aqui se muestra el formulario de inicio de sesion y el enlace para crear una cuenta.
     //En el futuro agregar el enlace de cambio de contraseña en el mismo div del crear cuenta.
   return (
@@ -11,7 +13,8 @@ const Login = () => {
         <IniciarSesion />
 
         <div className="container-enlaces-sesion">
-          <Link className="" to="/create-account">Don't have an account? Create one here!</Link>
+          <Link className="" to="/create-account">{t('createAccount')}</Link>
+          <Link className="iniciar-btn" to="/restablecer-password">{t("resetPassword")}</Link>
         </div>
       </div> 
     </div>

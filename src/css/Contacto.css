@@ -87,3 +87,9 @@
     background: var(--color-azul);
     color: var(--color-texto);
 }
+
+@media screen and (max-width: 768px) {
+    .container-contacto{
+        width: 90%;
+    }
+}
