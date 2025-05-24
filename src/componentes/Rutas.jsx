@@ -6,8 +6,6 @@ import Perfil from './paginas/usuario/Perfil.jsx';
 import Contacto from './paginas/Contacto.jsx';
 import Nosotros from './paginas/Nosotros.jsx';
 import Error from './paginas/Error.jsx';
-//Se estuver rojo no borrar, es para que funcione el import, el mio aparece en rojo
-//porque react esta diciendo que esta abierto en la carpeta Formularios con F mayuscula(mentira).
 import EditarPerfil from './paginas/formularios/EditarPerfil.jsx';
 
 const Rutas = () => {

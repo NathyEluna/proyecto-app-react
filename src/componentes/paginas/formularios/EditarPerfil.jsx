@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { sesionContexto } from "../../../contextos/ProveedorSesion.jsx";
 import "../../../css/EditarPerfil.css";
 import { useTranslation } from "react-i18next";
@@ -8,14 +8,14 @@ const EditarPerfil = () => {
     const { t } = useTranslation("editarPerfil");
 
     //Contexto.
-    const { user, updateProfile } = useContext(sesionContexto);
+    const { user, manejarUpdateProfile, loading } = useContext(sesionContexto);
     //Estado para el formulario.
     const [formData, setFormData] = useState({
-        username: user?.username || "",
-        email: user?.email || "",
-        password: user?.password || "",
+        username: user?.username,
+        email: user?.email,
+        password: user?.password,
     });
-  
+
     //Funciones.
     const manejarCambio = (e) => {
       setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -23,7 +23,7 @@ const EditarPerfil = () => {
   
     const manejarSubmit = async (e) => {
       e.preventDefault();
-      await updateProfile(formData);
+      await manejarUpdateProfile(formData);
       
     };
   

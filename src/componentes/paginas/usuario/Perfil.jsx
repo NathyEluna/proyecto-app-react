@@ -12,7 +12,7 @@ const Perfil = () => {
             <h2>Profile</h2>
             {/* Implementar la visualización de la imagen de perfil del usuario para el proyecto final. */}
             {/*<img src={user?.profile_picture} alt="Profile Picture"/>*/}
-            <p>Username:</p>
+            <p><strong>Username:</strong></p>
             <p>{user?.username}</p>
             
             <p><strong>Email:</strong></p>
