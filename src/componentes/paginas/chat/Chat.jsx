@@ -2,6 +2,7 @@
 import { useState, useCallback } from 'react';
 import { useSession } from '../../../contextos/SessionProvider';
 import { useChat } from '../../../contextos/ChatProvider';
+import ReactMarkdown from 'react-markdown';
 
 export default function ChatComponent() {
   const { messages, loading, inventory } = useSession();
@@ -30,7 +31,7 @@ export default function ChatComponent() {
               : 'mr-auto bg-gray-200 text-black'
               }`}
           >
-            {msg.content}
+          <ReactMarkdown>{msg.content}</ReactMarkdown>
           </div>
         ))}
         {sending && (

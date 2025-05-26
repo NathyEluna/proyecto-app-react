@@ -97,7 +97,6 @@ export const SessionProvider = ({ children }) => {
     };
 
     const startNewSession = async (roomId) => {
-        console.log("Starting new session for roomId:", roomId);
         try {
             const { data, error } = await supabase.from('room_sessions').insert({
                 user_id: user.id,
@@ -108,7 +107,6 @@ export const SessionProvider = ({ children }) => {
             }).select('*').single();
 
             if (error) throw error;
-            console.log("New session created:", data);
 
             setSession(data);
             setMessages([]);

@@ -11,7 +11,6 @@ const CrearCuenta = () => {
         const { email, password, username } = credentials;
         await registerUser(email, password, username);
 
-        console.log("Account created successfully with username:", username, "and email:", email, "and password:", password);
     };
 
 

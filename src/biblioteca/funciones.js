@@ -49,11 +49,11 @@ export async function sendMessageToRoomSession(sessionId, userMessage) {
 
     const assistantReply = completion.choices[0].message.content.trim();
 
-    // Save user and assistant messages
+    /* // Save user and assistant messages
     await supabase.from('chat_messages').insert([
       { session_id: sessionId, role: 'user', content: userMessage },
       { session_id: sessionId, role: 'assistant', content: assistantReply }
-    ]);
+    ]); */
 
     // Detect items in assistant reply
     const foundMatches = [...assistantReply.matchAll(/\[ITEM FOUND: (.*?)\]/gi)];

@@ -38,7 +38,7 @@ const ChatProvider = ({ children }) => {
                 userMessage,
             );
 
-            if (assistantResponse.error || !assistantResponse.assistantReply) {
+            if (assistantResponse.error || !assistantResponse.response) {
                 throw new Error(assistantResponse.error || 'No assistant response');
             }
 
@@ -48,17 +48,16 @@ const ChatProvider = ({ children }) => {
                 .insert({
                     session_id: session.id,
                     role: 'assistant',
-                    content: assistantResponse.assistantReply,
+                    content: assistantResponse.response,
                 })
                 .select('*')
                 .single();
 
             if (insertAssistantError) throw insertAssistantError;
-            setMessages(prev => [...prev, assistantMsg]);
+            setMessages(prev => [...prev, insertedAssistantMessage]);
 
             //setMessages((prev) => [...prev, insertedUserMessage, insertedAssistantMessage]);
         } catch (err) {
-            console.error('Chat error:', err);
             setChatError('Failed to send message.');
         };
 
