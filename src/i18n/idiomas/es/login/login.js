@@ -1,7 +1,7 @@
 const login = {
     title: "Iniciar sesión",
-    labelEmail: "Usuario:",
-    placeholderEmail: "Usuario",
+    labelEmail: "Correo Electrónico:",
+    placeholderEmail: "nombre@correo.es",
     labelPassword: "Contraseña:",
     placeholderPassword: "********",
     buttonSignIn: "Ingresar",

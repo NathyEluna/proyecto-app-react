@@ -1,7 +1,7 @@
 const login = {
     title: "Login",
-    labelEmail: "Username:",
-    placeholderEmail: "Username",
+    labelEmail: "Email:",
+    placeholderEmail: "name@email.com",
     labelPassword: "Password:",
     placeholderPassword: "********",
     buttonSignIn: "Sign In",
