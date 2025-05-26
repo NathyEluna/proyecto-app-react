@@ -3,17 +3,23 @@ import Cabecera from './componentes/estructura/Cabecera.jsx';
 import Contenido from './componentes/estructura/Contenido.jsx';
 import Rutas from './componentes/Rutas.jsx';
 import Pie from './componentes/estructura/Pie.jsx';
-import ProveedorSesion from './contextos/ProveedorSesion.jsx';
+import AuthProvider from './contextos/AuthProvider.jsx';
+import SessionProvider from './contextos/SessionProvider.jsx';
+import ChatProvider from './contextos/ChatProvider.jsx';
 
 function App() {
   return (
-    <ProveedorSesion>
-      <Cabecera/>
-      <Contenido>
-        <Rutas/>
-      </Contenido>
-      <Pie/>
-    </ProveedorSesion>
+    <AuthProvider>
+      <SessionProvider>
+        <Cabecera />
+        <Contenido>
+          <ChatProvider>
+            <Rutas />
+          </ChatProvider>
+        </Contenido>
+        <Pie />
+      </SessionProvider>
+    </AuthProvider>
   );
 };
 

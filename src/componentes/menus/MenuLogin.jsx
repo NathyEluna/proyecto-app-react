@@ -1,11 +1,11 @@
-import { useEffect, useContext, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { sesionContexto } from "../../contextos/ProveedorSesion.jsx";
 import { FaUserLarge } from "react-icons/fa6";
+import { useAuth } from "../../contextos/AuthProvider";
 
 const MenuLogin = () => {
     // Contexto.
-    const { user, manejarLogout } = useContext(sesionContexto);
+    const { user, logout } = useAuth();
     // Estado para el menú hamburguesa.
     const [menuVisible, setMenuVisible] = useState(false);
     const [color, setColor] = useState("white");
@@ -35,7 +35,7 @@ const MenuLogin = () => {
                     ) : (
                         <>
                             <Link className="" to="/profile">Profile</Link>
-                            <button className="" onClick={manejarLogout}>Logout</button>
+                            <button className="" onClick={logout}>Logout</button>
                         </>
                     )}
                 </div>

@@ -7,6 +7,8 @@ import Contacto from './paginas/Contacto.jsx';
 import Nosotros from './paginas/Nosotros.jsx';
 import Error from './paginas/Error.jsx';
 import EditarPerfil from './paginas/formularios/EditarPerfil.jsx';
+import Chat from './paginas/chat/Chat.jsx';
+import RoomSelection from './paginas/escape-rooms/RoomSelection.jsx';
 
 const Rutas = () => {
     return (
@@ -18,7 +20,8 @@ const Rutas = () => {
             <Route path="/edit-profile" element={<EditarPerfil/>} />
             <Route path="/contact-us" element={<Contacto />} />
             <Route path="/about-us" element={<Nosotros />} />
-            {/*<Route path="/users" element={<ListadoUsuarios />} />*/}
+            <Route path='/escape-rooms' element={<RoomSelection />} />
+            <Route path="/play" element={<Chat />} />
             <Route path="*" element={<Error />} />
         </Routes>
     );

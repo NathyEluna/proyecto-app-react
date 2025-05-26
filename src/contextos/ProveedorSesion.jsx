@@ -1,7 +1,5 @@
-import { createContext, useState, useEffect } from 'react';
+/* import { createContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth.jsx';
-import { useUser } from '../hooks/useUser.jsx';
 
 const sesionContexto = createContext();
 
@@ -127,4 +125,4 @@ const ProveedorSesion = ({ children }) => {
 };
 
 export { sesionContexto };
-export default ProveedorSesion;
+export default ProveedorSesion; */

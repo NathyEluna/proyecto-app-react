@@ -1,49 +1,39 @@
 import { useState, useContext } from "react";
-import { sesionContexto } from "../../../contextos/ProveedorSesion.jsx";
 import "../../../css/CrearCuenta.css";
+import { useAuth } from "../../../contextos/AuthProvider";
 
 const CrearCuenta = () => {
     // Contexto.
-    const { manejarRegistro, loading } = useContext(sesionContexto);
-    // Estados para los inputs.
-    const [username, setUsername] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const { registerUser, updateCredentials, credentials } = useAuth();
 
-    // Manejar el cambio de los inputs.
-    const manejarCambioUsername = (e) => setUsername(e.target.value);
-    const manejarCambioEmail = (e) => setEmail(e.target.value);
-    const manejarCambioPassword = (e) => setPassword(e.target.value);
-
-    // Manejar el click en el botón de registro.
-    const manejarClick = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        manejarRegistro(username, email, password);
+        const { email, password, username } = credentials;
+        await registerUser(email, password, username);
+
+        console.log("Account created successfully with username:", username, "and email:", email, "and password:", password);
     };
+
 
     return (
         <>
-            {loading ? <p>Loading...</p> 
-            : (
                 <div className="container-imagen">
                     <div className="container-registro">
                         <h1>Create Account</h1>
                         <form>
                             <label htmlFor="username">Username:</label>
-                            <input type="text" id="username" name="username" placeholder="Username" required onChange={manejarCambioUsername} />
+                            <input type="text" id="username" name="username" placeholder="Username" required onChange={(e) => updateCredentials(e)} />
 
                             <label htmlFor="email">Email:</label>
-                            <input type="email" id="email" name="email" placeholder="email@example.com" required onChange={manejarCambioEmail} />
+                            <input type="email" id="email" name="email" placeholder="email@example.com" required onChange={(e) => updateCredentials(e)} />
 
                             <label htmlFor="password">Password:</label>
-                            <input type="password" id="password" name="password" placeholder="********" required onChange={manejarCambioPassword} />
+                            <input type="password" id="password" name="password" placeholder="********" required onChange={(e) => updateCredentials(e)} />
 
-                            <button className="btn-sesion" onClick={manejarClick}>Create Account</button>
+                            <button className="btn-sesion" onClick={handleSubmit}>Create Account</button>
                         </form>
                     </div>
-
                 </div>
-            )}
         </>
     );
 };
