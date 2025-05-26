@@ -17,7 +17,7 @@ const ChatProvider = ({ children }) => {
         setChatError('');
 
         try {
-            // 1. Store user message
+            //1. Store user message.
             const { data: insertedUserMessage, error: insertUserError } = await supabase
                 .from('chat_messages')
                 .insert({
@@ -32,7 +32,7 @@ const ChatProvider = ({ children }) => {
 
             setMessages(prev => [...prev, insertedUserMessage]);
 
-            // 2. Call function to generate assistant reply
+            //2. Call function to generate assistant reply.
             const assistantResponse = await sendMessageToRoomSession(
                 session.id,
                 userMessage,
@@ -42,7 +42,7 @@ const ChatProvider = ({ children }) => {
                 throw new Error(assistantResponse.error || 'No assistant response');
             }
 
-            // 3. Store assistant reply
+            //3. Store assistant reply.
             const { data: insertedAssistantMessage, error: insertAssistantError } = await supabase
                 .from('chat_messages')
                 .insert({

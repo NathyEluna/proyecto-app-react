@@ -18,7 +18,7 @@ export const SessionProvider = ({ children }) => {
         setError('');
 
         try {
-            // Load room session for current user
+            //Load room session for current user.
             const { data, error: sessionError } = await supabase
                 .from('room_sessions')
                 .select('*')
@@ -32,7 +32,7 @@ export const SessionProvider = ({ children }) => {
             const sessionData = data?.[0];
 
             if (!sessionData) {
-                // No active session found — reset state
+                //No active session found — reset state.
                 setSession(null);
                 setRoom(null);
                 setMessages([]);
@@ -43,7 +43,7 @@ export const SessionProvider = ({ children }) => {
 
             setSession(sessionData);
 
-            // Load room info
+            //Load room info.
             const { data: roomData, error: roomError } = await supabase
                 .from('escape_rooms')
                 .select('*')
@@ -52,7 +52,7 @@ export const SessionProvider = ({ children }) => {
             if (roomError) throw roomError;
             setRoom(roomData);
 
-            // Load chat messages
+            //Load chat messages.
             const { data: chatData, error: chatError } = await supabase
                 .from('chat_messages')
                 .select('*')
@@ -60,7 +60,7 @@ export const SessionProvider = ({ children }) => {
                 .order('created_at', { ascending: true });
             if (chatError) throw chatError;
 
-            // If no chat messages, insert intro message automatically
+            //If no chat messages, insert intro message automatically.
             if (chatData.length === 0 && roomData?.intro_message) {
                 const { data: insertedIntro, error: insertError } = await supabase
                     .from('chat_messages')
@@ -79,7 +79,7 @@ export const SessionProvider = ({ children }) => {
                 setMessages(chatData);
             }
 
-            // Load inventory
+            //Load inventory.
             const { data: inventoryData, error: inventoryError } = await supabase
                 .from('inventory_items')
                 .select('*')
@@ -121,7 +121,7 @@ export const SessionProvider = ({ children }) => {
 
             setRoom(roomData);
 
-            // Insert intro message immediately for new session
+            //Insert intro message immediately for new session.
             if (roomData?.intro_message) {
                 const { data: insertedIntro, error: insertError } = await supabase
                     .from('chat_messages')

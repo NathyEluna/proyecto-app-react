@@ -2,6 +2,7 @@ import { OpenAI } from 'openai';
 import { supabase } from '../config/supabase';
 
 export async function sendMessageToRoomSession(sessionId, userMessage) {
+  //openai is the OpenAI client used to interact with the GPT model.
   const openai = new OpenAI({ apiKey: import.meta.env.VITE_OPENAI_API_KEY, dangerouslyAllowBrowser: true });
 
   try {
@@ -32,7 +33,7 @@ export async function sendMessageToRoomSession(sessionId, userMessage) {
       ...(userMessage ? [{ role: 'user', content: userMessage }] : [])
     ];
 
-    // Prune tokens if needed
+    //Prune messages to fit within token limits.
     const maxTokens = 2800;
     let tokenEstimate = messages.reduce((sum, msg) => sum + Math.ceil(msg.content.length / 4), 0);
     while (tokenEstimate > maxTokens && messages.length > 3) {
@@ -40,7 +41,7 @@ export async function sendMessageToRoomSession(sessionId, userMessage) {
       tokenEstimate = messages.reduce((sum, msg) => sum + Math.ceil(msg.content.length / 4), 0);
     };
 
-    // Send the full conversation context
+    //Send the full conversation context.
     const completion = await openai.chat.completions.create({
       model: "gpt-4.1-nano",
       messages: messages,
@@ -49,18 +50,19 @@ export async function sendMessageToRoomSession(sessionId, userMessage) {
 
     const assistantReply = completion.choices[0].message.content.trim();
 
-    /* // Save user and assistant messages
+    /* //Save user and assistant messages.
     await supabase.from('chat_messages').insert([
       { session_id: sessionId, role: 'user', content: userMessage },
       { session_id: sessionId, role: 'assistant', content: assistantReply }
     ]); */
 
-    // Detect items in assistant reply
+    //Detect items in assistant reply.
     const foundMatches = [...assistantReply.matchAll(/\[ITEM FOUND: (.*?)\]/gi)];
     const usedMatches = [...assistantReply.matchAll(/\[(ITEM USED|REMOVE ITEM): (.*?)\]/gi)];
     const foundItems = foundMatches.map((m) => m[1].trim());
     const usedItems = usedMatches.map((m) => m[2].trim());
 
+    //Save items found in the reply to the inventory.
     for (const itemName of foundItems) {
       if (!inventory.includes(itemName)) {
         await supabase.from('inventory_items').insert({
@@ -70,6 +72,7 @@ export async function sendMessageToRoomSession(sessionId, userMessage) {
       };
     };
 
+    //Remove used items from inventory.
     for (const itemName of usedItems) {
       await supabase
         .from('inventory_items')

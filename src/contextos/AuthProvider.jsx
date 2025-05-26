@@ -41,7 +41,6 @@ const AuthProvider = ({ children }) => {
 
             const userId = data.user?.id;
 
-            // If user ID exists (rare in email confirmation flows, but handle anyway)
             if (userId) {
                 const { error: profileError } = await supabase
                     .from('profiles')
