@@ -11,9 +11,9 @@ export default function Slider() {
   const { t } = useTranslation("slider");
 
   const slides = [
-    { id: 1, image: cyberpunk, key: "slide1", position: "left", buttonLink: "/about-us" , gradient: "linear-gradient(to left, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.3) 40%, rgba(129, 26, 219, 0.8) 100%)"},
-    { id: 2, image: espia, key: "slide2", position: "right", buttonLink: "/about-us", gradient: "linear-gradient(to right, rgba(0,0,0,0.0) 0%, rgba(6, 16, 35, 0.5) 40%, rgba(6, 16, 35, 1) 100%)" },
-    { id: 3, image: steampunk, key: "slide3", position: "center", buttonLink: "/about-us", gradient: "linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.3) 40%, rgba(109, 201, 247, 0.85) 100%)" }
+    { id: 1, image: cyberpunk, key: "slide1", position: "left", buttonLink: "/escape-rooms" , gradient: "linear-gradient(to left, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.3) 40%, rgba(129, 26, 219, 0.8) 100%)"},
+    { id: 2, image: espia, key: "slide2", position: "right", buttonLink: "/escape-rooms", gradient: "linear-gradient(to right, rgba(0,0,0,0.0) 0%, rgba(6, 16, 35, 0.5) 40%, rgba(6, 16, 35, 1) 100%)" },
+    { id: 3, image: steampunk, key: "slide3", position: "center", buttonLink: "/escape-rooms", gradient: "linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.3) 40%, rgba(109, 201, 247, 0.85) 100%)" }
   ];
   
   const [current, setCurrent] = useState(0);
