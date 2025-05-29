@@ -22,3 +22,17 @@
     text-decoration: none;
     margin: 25px 15px;
 }
+
+@media (max-width: 768px) {
+    .container-nosotros {
+        width: 90%;
+        margin: 20px auto;
+    }
+    .container-nosotros h1 {
+        font-size: 24pt;
+    }
+    .container-nosotros p {
+        font-size: 12pt;
+        margin: 15px 10px;
+    }
+}
