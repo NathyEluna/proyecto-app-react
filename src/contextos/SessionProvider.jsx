@@ -155,10 +155,57 @@ export const SessionProvider = ({ children }) => {
 
             if (error) throw error;
             setSession((prev) => ({ ...prev, completed: true }));
+            
+            // Clear local state after completion
+            setSession(null);
+            setRoom(null);
+            setMessages([]);
+            setInventory([]);
         } catch (err) {
             console.error('Failed to complete session:', err);
             setError('Could not complete session');
         };
+    };
+
+    //NEW FUNCTION: Delete current session.
+    const deleteCurrentSession = async () => {
+        if (!session) return;
+
+        try {
+            // Delete related data first (due to foreign key constraints)
+            await supabase
+                .from('inventory_items')
+                .delete()
+                .eq('session_id', session.id);
+
+            await supabase
+                .from('chat_messages')
+                .delete()
+                .eq('session_id', session.id);
+
+            // Delete the session itself
+            const { error } = await supabase
+                .from('room_sessions')
+                .delete()
+                .eq('id', session.id);
+
+            if (error) throw error;
+
+            // Clear local state
+            setSession(null);
+            setRoom(null);
+            setMessages([]);
+            setInventory([]);
+            
+        } catch (err) {
+            console.error('Failed to delete session:', err);
+            setError('Could not delete session');
+        };
+    };
+
+    //NEW FUNCTION: Check if user has active session.
+    const hasActiveSession = () => {
+        return session && !session.completed;
     };
 
     useEffect(() => {
@@ -177,6 +224,8 @@ export const SessionProvider = ({ children }) => {
         loadSession,
         startNewSession,
         completeSession,
+        deleteCurrentSession,
+        hasActiveSession,
         setMessages,
         setInventory,
     };

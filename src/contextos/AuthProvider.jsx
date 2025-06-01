@@ -88,6 +88,9 @@ const AuthProvider = ({ children }) => {
             const { error } = await supabase.auth.signOut();
             if (error) throw error;
 
+            setUser(null);
+            setIsAuthenticated(false);
+
             navigate("/login");
         } catch (error) {
             setAuthError(error.message);
@@ -119,7 +122,7 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         try {
             const { error } = await supabase.auth.resetPasswordForEmail(credentials.email, {
-                redirectTo: "http://localhost:5173/change-password", //TODO: change to actual URL later.
+                redirectTo: "https://mindescape-nathyelunas-projects.vercel.app/change-password",
             });
 
             if (error) throw error;

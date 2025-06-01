@@ -43,26 +43,26 @@ export default function CardsGame() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0a0a1a] p-10 flex flex-col gap-16">
+    <div className="min-h-screen bg-[#0a0a1a] p-4 md:p-10 flex flex-col gap-16">
       {cards.map((card, idx) => {
         const content = t(card.key, { returnObjects: true });
 
         return (
-          <div key={idx} className="w-[70%] mx-auto">
+          <div key={idx} className="w-full md:w-[70%] mx-auto">
             <div
-              className={`rounded-3xl text-left px-0 shadow-2xl w-full relative z-20 flex items-center ${
-                card.imagePosition === "left" ? "flex-row" : "flex-row-reverse"
-              }`}
+              className={`rounded-3xl text-left shadow-2xl w-full relative z-20 flex flex-col md:flex-row ${
+                card.imagePosition === "left" ? "md:flex-row" : "md:flex-row-reverse"
+              } items-center`}
               style={{ background: card.gradient }}
             >
               <img
                 src={card.image}
                 alt={content.title}
-                className={`${card.imageSize} ${card.imageTransform} z-30 drop-shadow-xl`}
+                className={`${card.imageSize} ${card.imageTransform} z-30 drop-shadow-xl max-w-full ${card.key === "card2" ? "mb-6 md:mb-0" : ""}`}
               />
 
-              <div className="flex-1 px-15 py-10">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">{content.title}</h2>
+              <div className="flex-1 px-6 md:px-15 py-6 md:py-10 text-white">
+                <h2 className="text-xl md:text-3xl font-bold mb-4">{content.title}</h2>
                 <p className="text-white/90 whitespace-pre-line font-semibold text-base leading-relaxed">
                   {content.text}
                 </p>

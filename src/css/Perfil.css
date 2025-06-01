@@ -40,3 +40,13 @@ h2{
     background: var(--color-morado);
     color: var(--color-texto);
 }
+
+@media (max-width: 768px) {
+    .container-perfil {
+        width: 90%;
+        margin: 20px auto;
+    }
+    h2{
+        margin: 0;
+    }
+}

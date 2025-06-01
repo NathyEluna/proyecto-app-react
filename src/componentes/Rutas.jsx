@@ -9,6 +9,8 @@ import Error from './paginas/Error.jsx';
 import EditarPerfil from './paginas/formularios/EditarPerfil.jsx';
 import Chat from './paginas/chat/Chat.jsx';
 import RoomSelection from './paginas/escape-rooms/RoomSelection.jsx';
+import RestablecerPassword from './paginas/formularios/RestablecerPassword.jsx';
+import CambiarPassword from './paginas/formularios/CambiarPassword.jsx';
 
 const Rutas = () => {
     return (
@@ -22,6 +24,8 @@ const Rutas = () => {
             <Route path="/about-us" element={<Nosotros />} />
             <Route path='/escape-rooms' element={<RoomSelection />} />
             <Route path="/play" element={<Chat />} />
+            <Route path='/restablecer-password' element={<RestablecerPassword/>}/>
+            <Route path='/change-password' element={<CambiarPassword/>}/>
             <Route path="*" element={<Error />} />
         </Routes>
     );
