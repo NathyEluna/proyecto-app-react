@@ -88,6 +88,9 @@ const AuthProvider = ({ children }) => {
             const { error } = await supabase.auth.signOut();
             if (error) throw error;
 
+            setUser(null);
+            setIsAuthenticated(false);
+
             navigate("/login");
         } catch (error) {
             setAuthError(error.message);

@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../../../config/supabase';
 import { useSession } from '../../../contextos/SessionProvider';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { useAuth } from '../../../contextos/AuthProvider';
 
 const RoomSelection = () => {
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
 
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -48,12 +50,20 @@ const RoomSelection = () => {
         {rooms.map((room) => (
           <li key={room.id} className="my-4 p-4 border rounded-lg shadow-md w-sm mx-auto">
             <h3 className="text-2xl ">{room.room_name}</h3>
-            <button onClick={() => handleStart(room.id)}>Start Room</button>
+            <p className="text-gray-400">{room.intro_message}</p>
+            {isAuthenticated ? (
+              <button onClick={() => handleStart(room.id)}>Start Room</button>
+            ) : (
+              <div className="text-center mt-4">
+                <p className='mb-3'>Please login to start this room</p>
+                <Link to="/login" className="border p-2 rounded-lg ">Login</Link>
+              </div>
+            )}
           </li>
         ))}
       </ul>
     </div>
   );
-}
+};
 
 export default RoomSelection;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { FaUserLarge } from "react-icons/fa6";
 import "../../css/MenuLogin.css";
@@ -14,13 +14,22 @@ const MenuLogin = () => {
     const [menuVisible, setMenuVisible] = useState(false);
     const [color, setColor] = useState("white");
 
-    
-
     // Función para alternar la visibilidad del menú.
     const toggleMenu = () => {
         setMenuVisible(!menuVisible);
         setColor(color === "white" ? "#DB1A9B" : "white");
     };
+
+    const handleLogout = useCallback(async (e) => {
+    e.preventDefault();
+    try {
+        await logout();
+        setMenuVisible(false);
+        setColor("white");
+    } catch (error) {
+        console.error('Logout failed:', error);
+    };
+    }, [logout, setMenuVisible, setColor]);
 
     
     return (
@@ -41,7 +50,7 @@ const MenuLogin = () => {
                     ) : (
                         <>
                             <Link className="" to="/profile">Profile</Link>
-                            <button className="" onClick={logout}>Logout</button>
+                            <button className="" onClick={handleLogout}>Logout</button>
                         </>
                     )}
                 </div>
