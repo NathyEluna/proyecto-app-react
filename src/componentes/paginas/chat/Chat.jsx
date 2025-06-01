@@ -34,7 +34,7 @@ export default function ChatComponent() {
   if (loading) return <p className="p-4 text-gray-500">Loading session...</p>;
 
   return (
-    <div className="flex flex-col h-full max-h-[75vh] border rounded-lg shadow p-4 space-y-4 w-3xl mx-auto mt-5 mb-5">
+    <div className="flex flex-col h-[75vh] border rounded-lg shadow p-4 space-y-4 w-full max-w-3xl mx-auto mt-4 mb-6 px-4">
       {/* Session Controls Header */}
       <div className="flex justify-between items-center border-b pb-2">
         <h2 className="text-xl font-semibold">{room?.room_name}</h2>
@@ -90,22 +90,26 @@ export default function ChatComponent() {
         {messages.map((msg) => (
           <div
             key={msg.id}
-            className={`p-3 rounded-xl max-w-[75%] ${msg.role === 'user'
-              ? 'ml-auto bg-blue-500 text-white'
-              : 'mr-auto bg-gray-200 text-black'
-              }`}
+            className={`p-3 rounded-xl break-words max-w-[85%] ${
+              msg.role === 'user'
+                ? 'ml-auto bg-blue-500 text-white'
+                : 'mr-auto bg-gray-200 text-black'
+            }`}
           >
             <ReactMarkdown>{msg.content}</ReactMarkdown>
           </div>
         ))}
         {sending && (
-          <div className="mr-auto bg-gray-100 text-gray-600 p-3 rounded-xl max-w-[75%] italic animate-pulse">
+          <div className="mr-auto bg-gray-100 text-gray-600 p-3 rounded-xl max-w-[85%] italic animate-pulse">
             Assistant is thinking...
           </div>
         )}
       </div>
 
-      <form onSubmit={handleSubmit} className="flex items-center gap-2">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col sm:flex-row gap-2 items-stretch"
+      >
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
@@ -115,7 +119,7 @@ export default function ChatComponent() {
         <button
           type="submit"
           disabled={sending || !input.trim()}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50"
+          className="bg-blue-600 text-white px-4 py-2 rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700"
         >
           Send
         </button>
@@ -123,7 +127,8 @@ export default function ChatComponent() {
 
       {chatError && <p className="text-red-500 text-sm">{chatError}</p>}
 
-      {/* Inventory Display */}
+      {/* Descomenta si quieres mostrar el inventario */}
+      {/* 
       {inventory.length > 0 && (
         <div className="border rounded p-2 bg-yellow-100 text-sm">
           <p className="font-semibold">Inventory:</p>
@@ -133,7 +138,7 @@ export default function ChatComponent() {
             ))}
           </ul>
         </div>
-      )}
+      )}*/}
     </div>
   );
 };
