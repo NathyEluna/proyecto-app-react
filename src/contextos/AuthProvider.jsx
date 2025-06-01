@@ -122,7 +122,7 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         try {
             const { error } = await supabase.auth.resetPasswordForEmail(credentials.email, {
-                redirectTo: "https://mindescape-nathyelunas-projects.vercel.app/change-password",
+                redirectTo: "https://mindescape-seven.vercel.app//change-password",
             });
 
             if (error) throw error;
