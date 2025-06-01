@@ -1,28 +1,92 @@
-// components/ChatComponent.jsx
 import { useState, useCallback } from 'react';
 import { useSession } from '../../../contextos/SessionProvider';
 import { useChat } from '../../../contextos/ChatProvider';
+import { useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 
 export default function ChatComponent() {
-  const { messages, loading, inventory } = useSession();
+  const { messages, loading, inventory, room, deleteCurrentSession, completeSession } = useSession();
   const { sendMessage, sending, chatError } = useChat();
   const [input, setInput] = useState('');
+  const [showConfirmDelete, setShowConfirmDelete] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = useCallback(
     async (e) => {
       e.preventDefault();
-    if (!input.trim()) return;
-    await sendMessage(input.trim());
-    setInput('');
+      if (!input.trim()) return;
+      await sendMessage(input.trim());
+      setInput('');
     }, [input, sending, sendMessage]
   );
+
+  const handleDeleteSession = async () => {
+    await deleteCurrentSession();
+    setShowConfirmDelete(false);
+    navigate('/escape-rooms'); // Navigate back to room selection
+  };
+
+  const handleCompleteSession = async () => {
+    await completeSession();
+    navigate('/escape-rooms'); // Navigate back to room selection
+  };
 
   if (loading) return <p className="p-4 text-gray-500">Loading session...</p>;
 
   return (
     <div className="flex flex-col h-full max-h-[75vh] border rounded-lg shadow p-4 space-y-4 w-3xl mx-auto mt-5 mb-5">
-      <div className="flex-1 overflow-y-auto space-y-2">
+      {/* Session Controls Header */}
+      <div className="flex justify-between items-center border-b pb-2">
+        <h2 className="text-xl font-semibold">{room?.room_name}</h2>
+        <div className="flex gap-2">
+          <button
+            onClick={() => navigate('/escape-rooms')}
+            className="px-3 py-1 text-sm border rounded hover:bg-gray-100 hover:text-black"
+          >
+            Back to Rooms
+          </button>
+          <button
+            onClick={handleCompleteSession}
+            className="px-3 py-1 text-sm bg-green-500 text-white rounded hover:bg-green-600"
+          >
+            Complete Room
+          </button>
+          <button
+            onClick={() => setShowConfirmDelete(true)}
+            className="px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600"
+          >
+            Quit Game
+          </button>
+        </div>
+      </div>
+
+      {/* Confirm Delete Modal */}
+      {showConfirmDelete && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full mx-4">
+            <h3 className="text-lg font-semibold mb-4">Quit Current Game?</h3>
+            <p className="text-gray-600 mb-6">
+              This will permanently delete your current progress. Are you sure?
+            </p>
+            <div className="flex gap-3 justify-end">
+              <button
+                onClick={() => setShowConfirmDelete(false)}
+                className="px-4 py-2 border rounded hover:bg-gray-800 bg-gray-400"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleDeleteSession}
+                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+              >
+                Quit Game
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className="flex-1 overflow-y-auto space-y-2 max-h-[60vh]">
         {messages.map((msg) => (
           <div
             key={msg.id}
@@ -31,7 +95,7 @@ export default function ChatComponent() {
               : 'mr-auto bg-gray-200 text-black'
               }`}
           >
-          <ReactMarkdown>{msg.content}</ReactMarkdown>
+            <ReactMarkdown>{msg.content}</ReactMarkdown>
           </div>
         ))}
         {sending && (
@@ -51,30 +115,25 @@ export default function ChatComponent() {
         <button
           type="submit"
           disabled={sending || !input.trim()}
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50"
         >
           Send
         </button>
       </form>
 
       {chatError && <p className="text-red-500 text-sm">{chatError}</p>}
-      {/* 
+
+      {/* Inventory Display */}
       {inventory.length > 0 && (
         <div className="border rounded p-2 bg-yellow-100 text-sm">
           <p className="font-semibold">Inventory:</p>
           <ul className="list-disc list-inside">
             {inventory.map((item) => (
-              <li key={item.id}>{item.item_name}</li> // fix `item.name` -> `item.item_name`
+              <li key={item.id}>{item.item_name}</li>
             ))}
           </ul>
         </div>
-      )} 
-      */}
+      )}
     </div>
   );
 };
-
-
-
-
-
-
