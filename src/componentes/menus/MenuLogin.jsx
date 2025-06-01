@@ -63,7 +63,7 @@ const MenuLogin = () => {
                     ) : (
                         <>
                             <Link to="/profile" onClick={handleLinkClick}>{t("profile")}</Link>
-                            <button onClick={() => { handleLogout(); handleLinkClick(); }}>{t("logout")}</button>
+                            <button onClick={handleLogout}>{t("logout")}</button>
                         </>
                     )}
                 </div>
