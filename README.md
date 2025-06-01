@@ -45,7 +45,7 @@ Welcome to **MindEscape**! This is a dynamic, AI-powered escape room adventure a
 ### 1. Clone the repository:
 
 ```bash
-git clone https://github.com/<your-username>/mindescape.git
+git clone https://github.com/<your-username>/proyecto-app-react.git
 cd mindescape
 ```
 
