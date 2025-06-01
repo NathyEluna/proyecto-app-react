@@ -13,8 +13,8 @@ module.exports = async (req, res) => {
       port: 587,
       secure: false,
       auth: {
-        user: import.meta.env.VITE_EMAIL_USER || process.env.EMAIL_USER,
-        pass: import.meta.env.VITE_EMAIL_PASS || process.env.EMAIL_PASS
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
       }
     });
 
