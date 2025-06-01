@@ -91,7 +91,7 @@ npm run dev
 
 ## 📄 License
 
-GPL
+[AGPL](LICENSE)
 
 ---
 
