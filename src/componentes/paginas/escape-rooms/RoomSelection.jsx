@@ -137,7 +137,7 @@ const RoomSelection = () => {
           {rooms.map((room) => (
             <li key={room.id} className="my-4 p-4 border rounded-lg shadow-md w-sm mx-auto">
               <h3 className="text-2xl ">{room.room_name}</h3>
-              <p className="text-gray-400">{room.intro_message}</p>
+              <p className="text-slate-100">{room.intro_message}</p>
               {isAuthenticated ? (
                 <button
                   onClick={() => handleStart(room.id)}
