@@ -1,3 +1,12 @@
+.container-bg-editar{
+    content: "";
+    display: block;
+    width: 100%;
+    padding: 70px 0 40px;
+    height: 100%;
+    background: url('../assets/img/YDRAY-Jessi_1.png') no-repeat center center/cover;
+}
+
 .container-editar{
     display: flex;
     flex-direction: column;
@@ -7,9 +16,9 @@
     background: rgba(6, 16, 35, 0.7);
     padding: 30px;
     margin: 50px auto;
-    width: 50%;
+    width: 30%;
     border-radius: 10px;
-    box-shadow: 0 0 15px var(--color-morado);
+    box-shadow: 0 0 15px var(--color-rosa);
     backdrop-filter: blur(10px);
 }
 
@@ -18,6 +27,7 @@
     flex-direction: column;
     gap: 15px;
     align-items: center;
+    width: 85%;
 }
 
 .container-editar > form > label {
@@ -28,9 +38,9 @@
 
 .container-editar > form > input {
     margin: auto;
-    width: 90%;
+    width: 100%;
     padding: 10px;
-    border: 1px solid var(--color-morado);
+    border: 1px solid var(--color-rosa);
     background: var(--color-campo-formulario);
     color: var(--color-texto);
     outline: none;
@@ -42,13 +52,13 @@
 }
 
 .container-editar > form > input:focus {
-    background-color: var(--color-morado);
+    background-color: var(--color-rosa);
     color: var(--color-texto);
 }
 
 .btn-editar-perfil{
     background: var(--color-fondo);
-    border: 2px solid var(--color-morado);
+    border: 2px solid var(--color-rosa);
     padding: 7px 25px;
     font-family: genos, sans-serif;
     letter-spacing: 0.7px;
@@ -60,8 +70,8 @@
     border-radius: 5px;
 }
 .btn-editar-perfil:hover{
-    border: 2px solid var(--color-morado);
-    background: var(--color-morado);
+    border: 2px solid var(--color-rosa);
+    background: var(--color-rosa);
     color: var(--color-texto);
 }
 
@@ -69,4 +79,47 @@
     .container-editar{
         width: 90%;
     }
+}
+
+.avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  outline: 2px solid var(--color-rosa);
+  box-shadow: 0 0 15px var(--color-rosa);
+}
+
+.avatar-placeholder {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: var(--color-rosa);
+  color: var(--color-texto);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  border: 2px solid var(--color-rosa);
+}
+
+.avatar-button {
+  background-color: var(--color-rosa);
+  color: var(--color-texto);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.avatar-button:hover {
+  background-color: var(--color-rosa);
 }

@@ -1,3 +1,12 @@
+.container-bg-nosotros{
+    content: "";
+    display: block;
+    width: 100%;
+    padding: 70px 0 40px;
+    height: 100%;
+    background: url('../assets/img/Laberinto_pasillo.jpg') no-repeat center center/cover;
+}
+
 .container-nosotros{
     background: rgba(6, 16, 35, 0.7);
     padding: 30px;
