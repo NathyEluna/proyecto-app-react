@@ -23,7 +23,7 @@ const Contacto = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('https://mindescape-seven.vercel.app/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
