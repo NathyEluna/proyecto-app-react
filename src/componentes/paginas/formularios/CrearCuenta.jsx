@@ -6,7 +6,7 @@ import { useAuth } from "../../../contextos/AuthProvider";
 const CrearCuenta = () => {
     const { t } = useTranslation("crearCuenta");
     // Contexto.
-    const { registerUser, updateCredentials, credentials } = useAuth();
+    const { registerUser, updateCredentials, credentials, authError } = useAuth();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -27,10 +27,14 @@ const CrearCuenta = () => {
                         <label htmlFor="email">{t('labelEmail')}</label>
                         <input type="email" id="email" name="email" placeholder={t("placeholderEmail")} required onChange={(e) => updateCredentials(e)} />
 
-                        <label htmlFor="password">{t('labelPassword')}</label>
-                        <input type="password" id="password" name="password" placeholder={t("placeholderPassword")} required onChange={(e) => updateCredentials(e)} />
+                            <label htmlFor="password">{t('labelPassword')}</label>
+                            <input type="password" id="password" name="password" placeholder={t("placeholderPassword")} required onChange={(e) => updateCredentials(e)} />
+                            <small className="password-requirements">
+                                {t('passwordRequirements')}
+                            </small>
 
                         <button className="btn-sesion" onClick={handleSubmit}>{t('buttonCreateAccount')}</button>
+                        {authError && <p className="error-message">{authError}</p>}
                     </form>
                 </div>
             </div>

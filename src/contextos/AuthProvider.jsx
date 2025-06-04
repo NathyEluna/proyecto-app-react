@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { supabase } from "../config/supabase.js";
+import { useTranslation } from "react-i18next";
 
 const AuthContext = createContext();
 
@@ -8,6 +9,7 @@ const AuthProvider = ({ children }) => {
     //Variables.
     const navigate = useNavigate();
     const location = useLocation();
+    const { t } = useTranslation("crearCuenta");
 
     //Initial state for credentials.
     const initialCredentials = { email: "", password: "", username: "" };
@@ -37,7 +39,15 @@ const AuthProvider = ({ children }) => {
                 password: credentials.password,
             });
 
-            if (error) throw error;
+            if (error) {
+            //Handle password requirements error from supabase specifically.
+            if (error.message.includes("Password should be")) {
+                setAuthError(t('passwordRequirements'));
+            } else {
+                setAuthError(error.message);
+            }
+                return;
+            }
 
             const userId = data.user?.id;
 

@@ -67,3 +67,21 @@
         width: 90%;
     }
 }
+
+.error-message {
+    color: var(--color-rosa);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.password-requirements {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-texto);
+    opacity: 0.8;
+    margin-top: 0.25rem;
+    text-align: left;
+}

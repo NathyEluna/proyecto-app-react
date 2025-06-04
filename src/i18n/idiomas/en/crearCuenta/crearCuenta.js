@@ -7,7 +7,8 @@ const crearCuenta = {
     labelPassword: "Password:",
     placeholderPassword: "********",
     buttonCreateAccount: "Create Account",
-    loading: "Loading..."
+    loading: "Loading...",
+    passwordRequirements: "Password must contain at least 6 characters, including uppercase, lowercase, numbers and special characters (!@#$%^&*)"
 };
 
 export default crearCuenta;
