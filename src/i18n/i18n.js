@@ -44,6 +44,9 @@ import espanolRestablecerPassword from './idiomas/es/restablecerPassword/restabl
 import inglesRoomSelection from './idiomas/en/roomSelection/roomSelection.js';
 import espanolRoomSelection from './idiomas/es/roomSelection/roomSelection.js';
 
+import inglesChat from './idiomas/en/chat/chat.js';
+import espanolChat from './idiomas/es/chat/chat.js';
+
 const resources = {
   en: {
     contacto: inglesContacto,
@@ -60,7 +63,7 @@ const resources = {
     cambiarPassword: inglesCambiarPassword,
     restablecerPassword: inglesRestablecerPassword,
     roomSelection: inglesRoomSelection,
-    
+    chat: inglesChat,
   },
   es: {
     contacto: espanolContacto,
@@ -77,7 +80,7 @@ const resources = {
     cambiarPassword: espanolCambiarPassword,
     restablecerPassword: espanolRestablecerPassword,
     roomSelection: espanolRoomSelection,
-
+    chat: espanolChat,
   },
 };
 
@@ -101,7 +104,8 @@ i18n
         'cardsGame', 
         'cambiarPassword',
         'restablecerPassword',
-        'roomSelection', 
+        'roomSelection',
+        'chat',
     ],
   });
 

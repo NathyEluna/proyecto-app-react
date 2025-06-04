@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 //imagenes
 import cyberpunk from "../../../assets/img/imagen_cyberpunk.png";
 import espia from "../../../assets/img/espia.png";
@@ -59,23 +60,23 @@ export default function Slider() {
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-4">{content.title}</h2>
               <p className="text-lg md:text-xl mb-6">{content.description}</p>
-              <a
-                href={slide.buttonLink}
-                style={{
-                  backgroundColor: "var(--color-rosa)",
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = "var(--color-fondo)";
-                  e.target.style.color = "white";
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = "var(--color-rosa)";
-                  e.target.style.color = "black";
-                }}
-                className="inline-block text-lg font-medium py-3 px-6 rounded-2xl shadow-lg transition-colors"
-              >
-                {content.buttonText}
-              </a>
+              <Link
+  to={slide.buttonLink}
+  style={{
+    backgroundColor: "var(--color-rosa)",
+  }}
+  onMouseEnter={(e) => {
+    e.target.style.backgroundColor = "var(--color-fondo)";
+    e.target.style.color = "white";
+  }}
+  onMouseLeave={(e) => {
+    e.target.style.backgroundColor = "var(--color-rosa)";
+    e.target.style.color = "black";
+  }}
+  className="inline-block text-lg font-medium py-3 px-6 rounded-2xl shadow-lg transition-colors"
+>
+  {content.buttonText}
+</Link>
             </div>
           </div>
         </motion.div>

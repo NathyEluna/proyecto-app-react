@@ -31,17 +31,22 @@ const Contacto = () => {
         body: JSON.stringify(formData)
       });
 
-      if (!response.ok) throw new Error('Failed to send email');
+      const data = await response.json();
 
-      alert('Message sent successfully!');
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to send email');
+      }
+
+      // Clear form
       setFormData({ username: "", email: "", message: "" });
+      // You might want to add a success message here
     } catch (error) {
       console.error('Error:', error);
-      alert('Failed to send message. Please try again.');
+      // You might want to show an error message to the user here
     } finally {
       setLoading(false);
     }
-  };
+};
 
   return (
     <div className="container-imagen-contacto">

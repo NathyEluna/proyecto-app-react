@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 import { useSession } from '../../../contextos/SessionProvider';
 import { useChat } from '../../../contextos/ChatProvider';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
 import ReactMarkdown from 'react-markdown';
 
 export default function ChatComponent() {
@@ -10,6 +11,7 @@ export default function ChatComponent() {
   const [input, setInput] = useState('');
   const [showConfirmDelete, setShowConfirmDelete] = useState(false);
   const navigate = useNavigate();
+   const { t } = useTranslation("chat");
 
   const handleSubmit = useCallback(
     async (e) => {
@@ -43,19 +45,19 @@ export default function ChatComponent() {
             onClick={() => navigate('/escape-rooms')}
             className="px-3 py-1 text-sm border rounded hover:bg-gray-100 hover:text-black"
           >
-            Back to Rooms
+            {t('backToRooms')}
           </button>
           <button
             onClick={handleCompleteSession}
             className="px-3 py-1 text-sm bg-green-500 text-white rounded hover:bg-green-600"
           >
-            Complete Room
+            {t('completeRoom')}
           </button>
           <button
             onClick={() => setShowConfirmDelete(true)}
             className="px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600"
           >
-            Quit Game
+            {t('quitGame')}
           </button>
         </div>
       </div>
@@ -64,22 +66,22 @@ export default function ChatComponent() {
       {showConfirmDelete && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full mx-4">
-            <h3 className="text-lg font-semibold mb-4">Quit Current Game?</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('confirmDeleteTitle')}</h3>
             <p className="text-gray-600 mb-6">
-              This will permanently delete your current progress. Are you sure?
+              {t('confirmDeleteMessage')}
             </p>
             <div className="flex gap-3 justify-end">
               <button
                 onClick={() => setShowConfirmDelete(false)}
                 className="px-4 py-2 border rounded hover:bg-gray-800 bg-gray-400"
               >
-                Cancel
+                {t('cancel')}
               </button>
               <button
                 onClick={handleDeleteSession}
                 className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
               >
-                Quit Game
+                {t('quitGame')}
               </button>
             </div>
           </div>
@@ -101,7 +103,7 @@ export default function ChatComponent() {
         ))}
         {sending && (
           <div className="mr-auto bg-gray-100 text-gray-600 p-3 rounded-xl max-w-[85%] italic animate-pulse">
-            Assistant is thinking...
+            {t('assistantThinking')}
           </div>
         )}
       </div>
@@ -121,13 +123,13 @@ export default function ChatComponent() {
           disabled={sending || !input.trim()}
           className="bg-blue-600 text-white px-4 py-2 rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700"
         >
-          Send
+          {t('sendButton')}
         </button>
       </form>
 
       {chatError && <p className="text-red-500 text-sm">{chatError}</p>}
 
-      {/* Descomenta si quieres mostrar el inventario */}
+      {/*Inventario */}
       {/* 
       {inventory.length > 0 && (
         <div className="border rounded p-2 bg-yellow-100 text-sm">

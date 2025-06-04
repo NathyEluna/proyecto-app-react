@@ -84,22 +84,22 @@ const RoomSelection = () => {
         {showActiveSessionWarning && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-white p-6 rounded-lg shadow-lg  max-w-md mx-auto">
-              <h3 className="text-lg font-semibold mb-4">Active Session Found</h3>
+              <h3 className="text-lg font-semibold mb-4">{t('activeTitle')}</h3>
               <p className="text-gray-600 mb-4">
-                You have an active session in "{room?.room_name}". What would you like to do?
+                {t('activeMessage').replace('{room?.room_name}', room?.room_name || 'Unknown Room')}
               </p>
               <div className="flex flex-col gap-3">
                 <button
                   onClick={handleContinueActiveSession}
                   className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
                 >
-                  Continue Current Session
+                  {t('continueSession')}
                 </button>
                 <button
                   onClick={handleStartNewAfterDelete}
                   className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
                 >
-                  Delete Current & Start New
+                  {t('deleteAndStartNew')}
                 </button>
                 <button
                   onClick={() => {
@@ -108,7 +108,7 @@ const RoomSelection = () => {
                   }}
                   className="px-4 py-2 border rounded hover:bg-gray-800 bg-gray-400"
                 >
-                  Cancel
+                  {t('cancel')}
                 </button>
               </div>
             </div>
@@ -120,14 +120,14 @@ const RoomSelection = () => {
           <div className="mb-6 p-4 bg-blue-100 border border-blue-300 rounded-lg max-w-md mx-auto">
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-semibold text-blue-800">Active Session</p>
-                <p className="text-blue-600">You have an ongoing session in "{room?.room_name}"</p>
+                <p className="font-semibold text-blue-800">{t('activeTitle')}</p>
+                <p className="text-blue-600">{t('sessionMessage').replace('{room?.room_name}', room?.room_name || 'Unknown Room')}</p>
               </div>
               <button
                 onClick={handleContinueActiveSession}
                 className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
               >
-                Continue
+                {t('continue')}
               </button>
             </div>
           </div>
@@ -137,18 +137,17 @@ const RoomSelection = () => {
           {rooms.map((room) => (
             <li key={room.id} className="my-4 p-4 border rounded-lg shadow-md w-sm mx-auto">
               <h3 className="text-2xl ">{room.room_name}</h3>
-              <p className="text-slate-100">{room.intro_message}</p>
               {isAuthenticated ? (
                 <button
                   onClick={() => handleStart(room.id)}
                   className="mt-3 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
                 >
-                  Start Room
+                  {t('buttomStart')}
                 </button>
               ) : (
                 <div className="text-center mt-4">
-                  <p className='mb-3'>Please login to start this room</p>
-                  <Link to="/login" className="border p-2 rounded-lg ">Login</Link>
+                  <p className='mb-3'>{t('loginPrompt')}</p>
+                  <Link to="/login" className="border p-2 rounded-lg ">{t('loginButton')}</Link>
                 </div>
               )}
             </li>
