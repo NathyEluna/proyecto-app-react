@@ -23,7 +23,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ message: "Missing required fields" });
     };
 
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 587,
       secure: false,
