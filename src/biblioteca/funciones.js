@@ -45,7 +45,7 @@ export async function sendMessageToRoomSession(sessionId, userMessage) {
     const completion = await openai.chat.completions.create({
       model: "gpt-4.1-nano",
       messages: messages,
-      max_tokens: 150,
+      max_tokens: 500,
     });
 
     const assistantReply = completion.choices[0].message.content.trim();
